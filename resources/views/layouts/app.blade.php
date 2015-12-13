@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Laravel QuickStart - Basic</title>
+	<title>Laravel QuickStart - Intermediate</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet" type="text/css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,6 +42,7 @@
 					</button>
 
 					<a class="navbar-brand" href="#">Task List</a>
+					<a class="navbar-brand" href="{{url("auth/logout")}}">Logout</a>
 				</div>
 
 				<div id="navbar" class="navbar-collapse collapse">

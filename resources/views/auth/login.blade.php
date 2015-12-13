@@ -36,10 +36,13 @@
 
 						<!-- Login Button -->
 						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-6">
+							<div class="col-sm-offset-4 col-sm-8">
 								<button type="submit" class="btn btn-default">
 									<i class="fa fa-btn fa-sign-in"></i>Login
 								</button>
+								<a class="btn btn-default" href="{{ url("auth/register") }}">
+									<i class="fa fa-user-plus"></i>Register
+								</a>
 							</div>
 						</div>
 					</form>

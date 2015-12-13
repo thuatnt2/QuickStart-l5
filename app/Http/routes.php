@@ -14,8 +14,7 @@ use App\Task;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    $tasks = Task::orderBy('created_at', 'asc')->get();
-    return view('tasks', ['tasks' => $tasks]);
+    return redirect()->to("tasks");
 });
 // Authentication Routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
