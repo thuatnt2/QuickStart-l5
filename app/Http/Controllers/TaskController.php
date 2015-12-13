@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\TaskRepository;
 use App\Task;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
 
 class TaskController extends Controller
 {
-    public function __construct()
+    public $task;
+    public function __construct(TaskRepository $task)
     {
         $this->middleware('auth');
+        $this->task = $task;
     }
     /**
      * Display a listing of the resource.
@@ -22,7 +23,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::orderBy("created_at","asc")->get();
+        $tasks = $this->task->all();
         return view("tasks.index",["tasks" => $tasks]);
     }
 
