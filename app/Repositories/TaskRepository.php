@@ -8,11 +8,26 @@
 namespace App\Repositories;
 
 
+use App\Task;
+
 class TaskRepository extends AbstractRepository
 {
+    public $task;
+    public function __construct(Task $task)
+    {
+        $this->task = $task;
+        parent::__construct($this->task);
+    }
 
-    public function create()
+    public function create(array $data)
+    {
+        $this->task->name = $data['name'];
+        $this->task->save();
+    }
+    public function edit(array $id)
     {
 
     }
+
+
 }

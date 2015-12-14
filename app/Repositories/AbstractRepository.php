@@ -19,11 +19,15 @@ abstract class AbstractRepository implements Repository
     }
     public function all()
     {
-        return $this->model->all();
+        return $this->model->orderBy('created_at', 'desc')->get();
     }
 
     public function findById($id)
     {
         return $this->model->find($id);
+    }
+    public function delete($id)
+    {
+        $this->model->delete($id);
     }
 }

@@ -54,12 +54,11 @@
 
                                 <td>
                                     <!-- TODO: Delete Button -->
-                                    <form action="/task/{{ $task->id }}" method="POST">
-							            {{ csrf_field() }}
-							            {{ method_field('DELETE') }}
-
-							            <button>Delete Task</button>
-        							</form>
+                                    {{--<form action="/task/{{ $task->id }}" method="POST">--}}
+							            {{--{{ csrf_field() }}--}}
+							            {{--{{ method_field('DELETE') }}--}}
+							           <a href="{{url('task',$task->id)}}"><i class="btn btn-danger btn-xs fa fa-trash"></i></a>
+        							{{--</form>--}}
                                 </td>
                             </tr>
                         @endforeach

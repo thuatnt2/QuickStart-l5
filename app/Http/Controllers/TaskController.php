@@ -45,7 +45,12 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+        ]);
+        $data = ['name' => $request->name];
+        $this->task->create($data);
+        return redirect()->action('TaskController@index');
     }
 
     /**
@@ -88,8 +93,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        $this->task->delete(re);
+
+        return redirect()->back();
     }
 }
