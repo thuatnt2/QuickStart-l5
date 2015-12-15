@@ -48,17 +48,23 @@
                         @foreach ($tasks as $task)
                             <tr>
                                 <!-- Task Name -->
-                                <td class="table-text">
+                                <td class="table-text" width="96%">
                                     <div>{{ $task->name }}</div>
                                 </td>
-
-                                <td>
+                                <td width="2%">
+                                    <!-- TODO: Edit Button -->
+                                    <form action="/task/{{ $task->id }}" method="GET">
+                                        {{ csrf_field() }}
+                                        <button class="btn btn-info btn-xs fa fa-edit" title="Sửa"></button>
+                                    </form>
+                                </td>
+                                <td width="2%">
                                     <!-- TODO: Delete Button -->
-                                    {{--<form action="/task/{{ $task->id }}" method="POST">--}}
-							            {{--{{ csrf_field() }}--}}
-							            {{--{{ method_field('DELETE') }}--}}
-							           <a href="{{url('task',$task->id)}}"><i class="btn btn-danger btn-xs fa fa-trash"></i></a>
-        							{{--</form>--}}
+                                    <form action="/task/{{ $task->id }}" method="POST">
+							            {{ csrf_field() }}
+							            {{ method_field('DELETE') }}
+							           <button class="btn btn-danger btn-xs fa fa-trash" title="Xóa"></button>
+        							</form>
                                 </td>
                             </tr>
                         @endforeach
